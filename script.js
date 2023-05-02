@@ -37,6 +37,7 @@ function generatePassword()
       password = password + choiceArr [randomIndex];
   }
   return password;
+  
 }
 
 function getPrompts()
