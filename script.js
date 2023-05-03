@@ -37,9 +37,8 @@ function generatePassword()
       password = password + choiceArr [randomIndex];
   }
   return password;
-  
 }
-
+ 
 function getPrompts()
 {
   //prompts option for secured password
@@ -51,17 +50,27 @@ function getPrompts()
       window.alert("character length has to be a number, 8 - 128 digits. - please try again.");
       return false;
     }
+
+    var numSeletions = 0;
+    while (numSeletions<1) {
     if (window.confirm("Do you want uppercase?")) {
       choiceArr = choiceArr.concat(upperCaseArr);
+      numSeletions++;
     }
     if (window.confirm("Do you want lowercase?")) {
       choiceArr = choiceArr.concat(lowerCaseArr);
+      numSeletions++;
     }
-    if (window.confirm("would you like specail characters in your password?")) {
+    if (window.confirm("would you like specail characters?")) {
       choiceArr = choiceArr.concat(specialCharaArr);
+      numSeletions++;
     }
     if (window.confirm("Do you want numbers?")) {
         choiceArr = choiceArr.concat(numberArr);
+        numSeletions++;
     }
+    if(numSeletions < 1)
+    window.alert ("You must select at least one of the following option. uppercase, lowercase, special character or number. - please try again.");
+  }
     return true;
 }
